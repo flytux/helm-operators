@@ -1,0 +1,13 @@
+apiVersion: demo.example.com/v1alpha1
+kind: Nginx
+metadata:
+  name: nginx-sample
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: bitnami/nginx
+    tag: 1.27.3-debian-12-r5
+  replicaCount: 1
+  service:
+    port: 80
+    type: ClusterIP  
