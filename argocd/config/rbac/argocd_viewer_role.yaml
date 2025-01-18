@@ -1,0 +1,23 @@
+# permissions for end users to view argocds.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd
+    app.kubernetes.io/managed-by: kustomize
+  name: argocd-viewer-role
+rules:
+- apiGroups:
+  - demo.kw.local
+  resources:
+  - argocds
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - demo.kw.local
+  resources:
+  - argocds/status
+  verbs:
+  - get

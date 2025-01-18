@@ -12,9 +12,14 @@ rules:
   resources:
   - namespaces
   - serviceaccounts
-  
+  - customresourcedefinitions
+  - clusterroles
+  - clusterrolebindings
+  - roles
+  - rolebindings
+  - jobs
   verbs:
-  - get
+  - "*"
 # We need to manage Helm release secrets
 - apiGroups:
   - ""
@@ -27,19 +32,18 @@ rules:
   - ""
   resources:
   - events
-  - serviceaccounts
   verbs:
   - create
 
 ##
-## Rules for demo.example.com/v1alpha1, Kind: Nginx
+## Rules for demo.kw.local/v1alpha1, Kind: Argocd
 ##
 - apiGroups:
-  - demo.example.com
+  - demo.kw.local
   resources:
-  - nginxes
-  - nginxes/status
-  - nginxes/finalizers
+  - argocds
+  - argocds/status
+  - argocds/finalizers
   verbs:
   - create
   - delete
@@ -82,20 +86,5 @@ rules:
   - patch
   - update
   - watch
-- apiGroups:
-  - "networking.k8s.io"
-  resources:
-  - networkpolicies
-  verbs:
-  - get
-  - create
-
-- apiGroups:
-  - "policy"
-  resources:
-  - poddisruptionbudgets
-  verbs:
-  - get
-  - create
 
 # +kubebuilder:scaffold:rules

@@ -1,0 +1,35 @@
+apiVersion: demo.kw.local/v1alpha1
+kind: Nexus
+metadata:
+  name: nexus-sample
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: sonatype/nexus3
+    tag: 3.64.0
+  imagePullSecrets: null
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    enabled: false
+    hostPath: /
+    hostRepo: repo.demo
+    ingressClassName: nginx
+  nexus:
+    env:
+    - name: INSTALL4J_ADD_VM_PARAMS
+      value: |-
+        -Xms2703M -Xmx2703M
+        -XX:MaxDirectMemorySize=2703M
+        -XX:+UnlockExperimentalVMOptions
+        -XX:+UseCGroupMemoryLimitForHeap
+        -Djava.util.prefs.userRoot=/nexus-data/javaprefs
+    - name: NEXUS_SECURITY_RANDOMPASSWORD
+      value: "true"
+    nexusPort: 8081
+  persistence:
+    accessMode: ReadWriteOnce
+    enabled: true
+    storageSize: 8Gi
+  
+  

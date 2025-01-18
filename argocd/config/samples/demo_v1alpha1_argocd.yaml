@@ -1,0 +1,9 @@
+apiVersion: demo.kw.local/v1alpha1
+kind: Argocd
+metadata:
+  name: argocd-sample
+spec:
+  configs:
+    cm:
+      admin.enabled: true
+      create: true
