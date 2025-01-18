@@ -12,3 +12,6 @@
 
 - Gitea (gitea-charts의 표준 차트 이용)
 - Nginx (기본 템플릿 자동 생성 방식)
+- Argocd
+- Nexus
+- Gitlab (테스트 필요)
