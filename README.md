@@ -1,4 +1,4 @@
-### Helm-Operator
+### Helm-Operators
 
 - Operator SDK를 이용하여 helm chart 기반의 CRD를 생성하고 관리한다.
 - helm chart에서 정의되는 values 파일의 내용을 CRD에 정의하여 helm chart 기반의 쿠버네티스 객체를 설치할 수 있다.
