@@ -1,0 +1,26 @@
+apiVersion: demo.kw.local/v1alpha1
+kind: Gitea
+metadata:
+  name: gitea-dev
+spec:
+  redis-cluster:
+    enabled: false
+  redis:
+    enabled: false
+  postgresql:
+    enabled: false
+  postgresql-ha:
+    enabled: false
+  
+  gitea:
+    config:
+      database:
+        DB_TYPE: sqlite3
+      session:
+        PROVIDER: memory
+      cache:
+        ADAPTER: memory
+      queue:
+        TYPE: level
+  
+  

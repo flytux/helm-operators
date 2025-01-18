@@ -1,0 +1,34 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+##
+## Base operator rules
+##
+# We need to get namespaces so the operator can read namespaces to ensure they exist
+- apiGroups:
+  - "*"
+  resources:
+  - namespaces
+  - networkpolicies
+  - poddisruptionbudgets
+  - secrets
+  - events
+  - deployments
+  - statefulsets
+  - configmaps
+  - persistentvolumeclaims
+  - serviceaccounts
+  - services
+  - gitea
+  - gitea/status
+  - gitea/finalizers 
+ 
+  verbs:
+  - "*"
+
+#
+ 
+
+# +kubebuilder:scaffold:rules
