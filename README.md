@@ -14,4 +14,4 @@
 - Nginx (기본 템플릿 자동 생성 방식)
 - Argocd
 - Nexus
-- Gitlab (테스트 필요)
+- Apache (Bitnami Chart의 경우 chart dependency의 경로를 로컬 file:// 로 변경하고, 타 정보를 제거한후에 실행)

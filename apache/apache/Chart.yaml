@@ -1,0 +1,8 @@
+dependencies:
+- name: common
+  repository: file://./charts
+  tags:
+  - bitnami-common
+  version: 2.x.x
+name: apache
+version: 11.3.2
