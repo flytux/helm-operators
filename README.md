@@ -15,3 +15,4 @@
 - Argocd
 - Nexus
 - Apache (Bitnami Chart의 경우 chart dependency의 경로를 로컬 file:// 로 변경하고, 타 정보를 제거한후에 실행)
+- Harbor (Apache와 같이 디펜던시 경로 로컬로 변경, reconsile이 지속되어 jobservice readiness probe 삭제), upgrade 시 registry password를 입력해야 가능하여 해당 로직 처리 필요

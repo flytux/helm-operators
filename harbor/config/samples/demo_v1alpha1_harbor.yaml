@@ -1,0 +1,8 @@
+apiVersion: demo.kw.local/v1alpha1
+kind: Harbor
+metadata:
+  name: harbor-sample
+spec:
+  core:
+    replicaCount: 2``
+  

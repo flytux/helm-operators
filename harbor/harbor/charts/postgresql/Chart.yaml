@@ -1,0 +1,6 @@
+dependencies:
+- name: common
+  repository: file://./charts
+  version: 2.x.x
+name: postgresql
+version: 16.4.3
