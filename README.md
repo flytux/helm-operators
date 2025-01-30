@@ -8,7 +8,29 @@
 
 ---
 
-#### Sample operators
+### Operator SDK Command
+
+```
+# helm chart를 받아서 해당 폴더에 압축을 해제한 후 Chart.yaml과 values.yaml 값을 적절하게 편집
+
+# helm chart operator 생성
+operator-sdk init --plugins helm --domain kw.local --group demo --version v1alpha1 --kind Harbor --helm-chart harbor
+IMG=kw.local/harbor-operator:v1 make docker-build
+IMG=kw.local/harbor-operator:v1 make deploy
+
+# 이미지 저장 및 노드에 복사
+docker save -o harbor-operator.tar kw.local/harbor-operator:v1
+scp harbor-operator.tar node-02.local:/root
+ssh node-02.local
+nerdctl load -i harbor-operator.tar
+
+# CR 생성
+k delete -k config/samples/ -n harbor
+k apply -k config/samples -n harbor
+
+```
+
+### Sample operators
 
 - Gitea (gitea-charts의 표준 차트 이용)
 - Nginx (기본 템플릿 자동 생성 방식)
